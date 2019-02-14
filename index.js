@@ -40,7 +40,7 @@ const Tour = sequelize.define('Tour', {
 }, { freezeTableName: true });
 
 Tour.sync().then(() => {
-	Tour.findAll().then((data) => {
+	Tour.findAll({ limit: 10 }).then((data) => {
 		const obj = JSON.parse(JSON.stringify(data));
 		const xml = js2xmlparser.parse("Tours", { "Tour": obj });
 		console.log(xml);
