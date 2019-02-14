@@ -2,6 +2,12 @@ const Sequelize = require('sequelize');
 const js2xmlparser = require('js2xmlparser');
 const fs = require('fs');
 
+// let sequelize = new Sequelize('verlocal_test', 'prakriti', 'igdefault', {
+// 	host: 'localhost',
+// 	port: 3306,
+// 	dialect: 'mysql'
+// });
+
 let sequelize = new Sequelize('My_Tour_Buddy', 'engineer', 'YellowPaper2019', {
 	host: 'dev-1.cfsei9jqvwga.us-west-2.rds.amazonaws.com',
 	port: 3306,
@@ -31,7 +37,7 @@ const Tour = sequelize.define('Tour', {
 	city: {
 		type: Sequelize.STRING,
 	},
-});
+}, { freezeTableName: true });
 
 Tour.sync().then(() => {
 	Tour.findAll().then((data) => {
