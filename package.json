@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "amit.jain2 <amit.jain2@tothenew.com>",
+  "author": "Prakriti",
   "license": "ISC",
   "dependencies": {
     "js2xmlparser": "^3.0.0",

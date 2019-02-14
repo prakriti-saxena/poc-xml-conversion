@@ -5,7 +5,10 @@ const fs = require('fs');
 let sequelize = new Sequelize('My_Tour_Buddy', 'engineer', 'YellowPaper2019', {
 	host: 'dev-1.cfsei9jqvwga.us-west-2.rds.amazonaws.com',
 	port: 3306,
-	dialect: 'mysql'
+	dialect: 'mysql',
+	dialectOptions: {
+		requestTimeout: 0,
+	},
 });
 
 sequelize
