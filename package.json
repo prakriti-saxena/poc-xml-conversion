@@ -1,0 +1,17 @@
+{
+  "name": "poc-xml-conversion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amit.jain2 <amit.jain2@tothenew.com>",
+  "license": "ISC",
+  "dependencies": {
+    "js2xmlparser": "^3.0.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.42.0"
+  }
+}
