@@ -37,7 +37,7 @@ const Tour = sequelize.define('Tour', {
 	city: {
 		type: Sequelize.STRING,
 	},
-}, { freezeTableName: true });
+}, { freezeTableName: true, timestamps: false });
 
 Tour.sync().then(() => {
 	Tour.findAll({ limit: 10 }).then((data) => {
