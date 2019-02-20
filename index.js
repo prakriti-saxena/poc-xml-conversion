@@ -2,10 +2,13 @@ const Sequelize = require('sequelize');
 const js2xmlparser = require('js2xmlparser');
 const fs = require('fs');
 
-// let sequelize = new Sequelize('verlocal_test', 'prakriti', 'igdefault', {
-// 	host: 'localhost',
-// 	port: 3306,
-// 	dialect: 'mysql'
+// let sequelize = new Sequelize('My_Tour_Buddy', 'engineer', 'YellowPaper2019', {
+// 	host: '127.0.0.1',
+// 	port: 4242,
+// 	dialect: 'mysql',
+// 	dialectOptions: {
+// 		requestTimeout: 0,
+// 	},
 // });
 
 let sequelize = new Sequelize('My_Tour_Buddy', 'engineer', 'YellowPaper2019', {
