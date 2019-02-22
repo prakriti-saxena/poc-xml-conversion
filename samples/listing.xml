@@ -11,6 +11,10 @@
     <currency></currency>
     <note></note>
     <intro_url></intro_url> <!-- video url of youtube -->
+    <duration></duration> <!-- in minutes -->
+    <max_guest></max_guest>
+    <min_guest></min_guest>
+
 
     <category_details>
         <category></category> <!-- name of the category -->
@@ -45,97 +49,24 @@
         </experience_variation>
     </variations>
 
-
-    <!-- For listing-type=product, Product Variation -->
-    <variations>
-        <product_variation>
-            <product_variation_id></product_variation_id>
-            <price></price>
-            <quantity></quantity>
-            <variation_name></variation_name>
-        </product_variation>
-        <product_variation>
-            <product_variation_id></product_variation_id>
-            <price></price>
-            <quantity></quantity>
-            <variation_name></variation_name>
-        </product_variation>
-    </variations>
-
-
+    <!-- Latitude and longitude -->
     <!-- Address fields -->
     <address_details>
         <address></address>
         <additional_address></additional_address>
         <state></state>
+        <lat></lat>
+        <lng></lng>
         <country></country>
-        <primary_country></primary_country>
         <city></city>
     </address_details>
-
-    <!-- Transportation -->
-    <transportation_details>
-        <transportation></transportation>
-        <car_model_name></car_model_name>
-    </transportation_details>
-
-
-    <!-- Settings -->
-    <location_setting></location_setting>
-    <instant_book></instant_book>
-    <marketplace_visibility></marketplace_visibility>
-    <open_reservation_settings>
-        <open_reservation></open_reservation>
-        <open_reservation_notice></open_reservation_notice>
-        <open_reservation_min_guest></open_reservation_min_guest>
-    </open_reservation_settings>
-    <!-- Additional Settings, todo should these be wrapped? -->
-    <tour_codename></tour_codename>
-    <tags>
-        <tag>
-            <tag_id></tag_id>
-            <tag_name></tag_name>           <!-- column name is "tag" todo -->
-        </tag>
-        <tag>                               <!-- column name is "tag" todo -->
-            <tag_id></tag_id>
-            <tag_name></tag_name>
-        </tag>
-    </tags>
-
 
     <!-- Banner Url and Images -->
     <banner_url></banner_url>
     <photos>
-        <photo>
-            <destination_id></destination_id>
-            <destination_url></destination_url>
-        </photo>
-        <photo>
-            <destination_id></destination_id>
-            <destination_url></destination_url>
-        </photo>
+        <photo_url></photo_url>
+        <photo_url></photo_url>
     </photos>
-
-    <!-- Shipping information -->
-    <shipping>
-        <shipping_methods>
-            <shipping_method>
-                <shipment_id></shipment_id>
-                <method></method>
-                <cost></cost>
-            </shipping_method>
-        </shipping_methods>
-        <processing_time></processing_time>
-        <shipping_from></shipping_from>
-    </shipping>
-
-
-    <!-- Experience Variation details - todo - decide their placement in the tree -->
-    <duration></duration> <!-- in minutes -->
-    <max_guest></max_guest>
-    <min_guest></min_guest>
-
-
 
 
     <!-- TODO More details to be added -->
@@ -144,7 +75,6 @@
     <!-- - Host Profile-->
     <!-- - Reviews-->
     <!-- - Similar Tours-->
-
 
 
 </Listing>
