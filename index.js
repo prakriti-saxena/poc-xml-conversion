@@ -1,61 +1,37 @@
-const Sequelize = require('sequelize');
-const js2xmlparser = require('js2xmlparser');
-const fs = require('fs');
+import bodyParser from 'body-parser';
+import ListingsController from './lib/controllers/listings';
 
-// let sequelize = new Sequelize('My_Tour_Buddy', 'engineer', 'YellowPaper2019', {
-// 	host: '127.0.0.1',
-// 	port: 4242,
-// 	dialect: 'mysql',
-// 	dialectOptions: {
-// 		requestTimeout: 0,
-// 	},
-// });
+const express = require('express');
+const app = express();
 
-let sequelize = new Sequelize('My_Tour_Buddy', 'engineer', 'YellowPaper2019', {
-	host: 'dev-1.cfsei9jqvwga.us-west-2.rds.amazonaws.com',
-	port: 3306,
-	dialect: 'mysql',
-	dialectOptions: {
-		requestTimeout: 0,
-	},
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+	// Website you wish to allow to connect
+	res.setHeader('Access-Control-Allow-Origin', '*');
+
+	// Request methods you wish to allow
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+	// Request headers you wish to allow
+	res.setHeader('Access-Control-Allow-Headers', 'X-Api-Key,content-type');
+
+	// Set to true if you need the website to include cookies in the requests sent
+	// to the API (e.g. in case you use sessions)
+	res.setHeader('Access-Control-Allow-Credentials', true);
+
+	// Pass to next layer of middleware
+	next();
 });
 
-sequelize
-	.authenticate()
-	.then(() => {
-		console.log('Connection has been established successfully.');
-	})
-	.catch(err => {
-		console.error('Unable to connect to the database:', err);
-	});
+app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/listings', ListingsController.getListings);
 
-const Tour = sequelize.define('Tour', {
-	tour_id: {
-		type: Sequelize.INTEGER.UNSIGNED,
-		primaryKey: true,
-	},
-	tour_title: {
-		type: Sequelize.STRING,
-	},
-	city: {
-		type: Sequelize.STRING,
-	},
-}, { freezeTableName: true, timestamps: false });
+app.listen(3000, () => console.log('Listening on port 3000'));
 
-Tour.sync().then(() => {
-	Tour.findAll({ limit: 10 }).then((data) => {
-		const obj = JSON.parse(JSON.stringify(data));
-		const xml = js2xmlparser.parse("Tours", { "Tour": obj });
-		console.log(xml);
-
-
-		fs.writeFile("data.xml", xml, function(err) {
-			if(err) {
-				return console.log(err);
-			}
-
-			console.log("The file was saved!");
-		});
-	});
-});
+export default app;
 
